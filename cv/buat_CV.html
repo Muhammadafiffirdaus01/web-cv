@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Muhammad Afif Firdaus</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&display=swap');
+    
+    :root {
+        --bg-body: #f4f6f9;
+        --bg-cv: #ffffff;
+        --text-main: #333333;
+        --text-muted: #475569;
+        --sidebar-bg: #0f172a;
+        --sidebar-text: #f8fafc;
+    }
+
+    /* AUTO DETEKSI TEMA USER (GELAP/CERAH) */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-body: #0f172a;
+            --bg-cv: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --sidebar-bg: #020617;
+            --sidebar-text: #f1f5f9;
+        }
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        background-color: var(--bg-body);
+        color: var(--text-main);
+        line-height: 1.6;
+        padding: 20px 0 40px 0;
+    }
+
+    /* ACTION BAR */
+    .action-bar {
+        max-width: 850px;
+        margin: 0 auto 20px auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-action {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+    }
+
+    .btn-back {
+        background-color: #64748b;
+        color: white;
+    }
+
+    .btn-back:hover {
+        background-color: #475569;
+    }
+
+    .btn-download {
+        background-color: #0284c7;
+        color: white;
+    }
+
+    .btn-download:hover {
+        background-color: #0369a1;
+    }
+
+    /* SOLUSI POTONGAN HALAMAN: Menggunakan width proporsional dan membiarkan height kalkulasi otomatis */
+    .cv-container {
+        width: 210mm;
+        height: auto;
+        margin: 0 auto;
+        background: var(--bg-cv);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    /* SIDEBAR (LEFT) */
+    .sidebar {
+        background: var(--sidebar-bg);
+        color: var(--sidebar-text);
+        padding: 40px 25px;
+    }
+
+    .profile-img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 4px solid #38bdf8;
+        margin: 0 auto 25px auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    .sidebar-title {
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #38bdf8;
+        margin-bottom: 15px;
+        margin-top: 35px;
+        border-bottom: 1px solid #334155;
+        padding-bottom: 5px;
+    }
+
+    .contact-item {
+        margin-bottom: 12px;
+        font-size: 0.85rem;
+        word-wrap: break-word;
+    }
+
+    .contact-item strong {
+        display: block;
+        color: #94a3b8;
+        font-size: 0.75rem;
+    }
+
+    .skill-list {
+        list-style: none;
+    }
+
+    .skill-list li {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        background: #1e293b;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border-left: 3px solid #38bdf8;
+        /* Mengamankan item keahlian agar tidak terbelah di tengah kotak */
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .education-item {
+        margin-bottom: 15px;
+        font-size: 0.85rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .education-item .year {
+        color: #38bdf8;
+        font-weight: 600;
+        font-size: 0.75rem;
+    }
+
+    /* MAIN CONTENT (RIGHT) */
+    .main-content {
+        padding: 40px 35px;
+        background: var(--bg-cv);
+    }
+
+    .header-name {
+        font-size: 2.3rem;
+        font-weight: 700;
+        color: var(--text-main);
+        line-height: 1.2;
+    }
+
+    .header-title {
+        font-size: 1.15rem;
+        color: #0284c7;
+        font-weight: 600;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .summary {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        text-align: justify;
+        margin-bottom: 35px;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        color: var(--text-main);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #0284c7;
+        padding-bottom: 5px;
+    }
+
+    .experience-container {
+        margin-bottom: 30px;
+    }
+
+    .exp-item {
+        margin-bottom: 25px;
+        /* Memaksa satu blok pengalaman pindah utuh ke halaman berikutnya jika ruang tidak cukup */
+        page-break-inside: avoid; 
+        break-inside: avoid;
+    }
+
+    .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 5px;
+    }
+
+    .exp-role {
+        font-weight: 700;
+        color: var(--text-main);
+        font-size: 1rem;
+    }
+
+    .exp-company {
+        color: #0284c7;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .exp-date {
+        font-size: 0.8rem;
+        color: #64748b;
+        font-style: italic;
+    }
+
+    .exp-dots {
+        padding-left: 20px;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    .exp-dots li {
+        margin-bottom: 5px;
+    }
+
+    /* PENGATURAN PRINTING FIX UNTUK JEDA HALAMAN A4 & BERSIH HEADER FOOTER */
+    @media print {
+        body { 
+            padding: 0; 
+            margin: 0;
+            background: none; 
+        }
+        .action-bar { 
+            display: none; 
+        }
+        .cv-container { 
+            box-shadow: none; 
+            width: 210mm;
+            display: grid;
+        }
+        @page { 
+            size: A4; 
+            /* Margin 0 ini berfungsi memaksa browser menghapus paksa tulisan header & footer bawaan */
+            margin: 0; 
+        }
+        
+        /* Memberikan padding bagian dalam agar konten tidak terlalu mepet ke ujung kertas A4 fisik */
+        .sidebar {
+            padding: 20mm 25px 20mm 25px;
+        }
+        .main-content {
+            padding: 20mm 35px 20mm 35px;
+        }
+
+        body, .cv-container, .main-content, .sidebar {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <!-- ACTION BAR -->
+    <div class="action-bar">
+        <a href="index.html" class="btn-action btn-back">⬅ Kembali ke Beranda</a>
+        <button onclick="window.print()" class="btn-action btn-download">🖨️ Cetak / Download PDF</button>
+    </div>
+
+    <!-- CV CONTAINER -->
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <img src="img/fotoafifalmetuns.png" alt="Muhammad Afif Firdaus" class="profile-img">
+            
+            <h3 class="sidebar-title">Kontak Saya</h3>
+            <div class="contact-item">
+                <strong>Email</strong>
+                afiffirdaus19tkj1@gmail.com
+            </div>
+            <div class="contact-item">
+                <strong>Telepon / WA</strong>
+                0821-3354-3719
+            </div>
+            <div class="contact-item">
+                <strong>Alamat</strong>
+                Masaran, Sragen, Jawa Tengah
+            </div>
+            <div class="contact-item">
+                <strong>GitHub / LinkedIn</strong>
+                github.com/Muhammadafiffirdaus01
+            </div>
+
+            <h3 class="sidebar-title">Pendidikan</h3>
+            <div class="education-item">
+                <div class="year">2022 - Sekarang</div>
+                <strong>S1 Pendidikan Teknik Informatika & Komputer</strong>
+                <p>Universitas Sebelas Maret</p>
+            </div>
+            <div class="education-item">
+                <div class="year">2019 - 2022</div>
+                <strong>SMK Teknik Komputer & Jaringan</strong>
+                <p>SMK Bina Taruna</p>
+            </div>
+            <div class="education-item">
+                <div class="year">2016 - 2019</div>
+                <strong>Sekolah Menengah Pertama</strong>
+                <p>SMPN 2 Kebakkramat</p>
+            </div>
+
+            <h3 class="sidebar-title">Keahlian Utama</h3>
+            <ul class="skill-list">
+                <li>Web Dev (HTML, CSS, PHP)</li>
+                <li>Bootstrap & Tailwind</li>
+                <li>Computer Network (LAN/WAN)</li>
+                <li>Database Management (DBMS)</li>
+                <li>IT Technical Support</li>
+                <li>Tech Leadership</li>
+                <li>Manajemen Waktu</li>
+            </ul>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <h1 class="header-name">Muhammad Afif Firdaus</h1>
+            <div class="header-title">Web Developer & IT Education Enthusiast</div>
+            
+            <p class="summary">
+                Mahasiswa tingkat akhir Pendidikan Teknik Informatika dan Komputer di Universitas Sebelas Maret yang berdedikasi tinggi, disiplin, dan adaptif. Memiliki rekam jejak kuat dalam Web Development, manajemen infrastruktur jaringan, serta kepemimpinan tim teknologi skala regional. Berpengalaman mengkoordinasi puluhan mahasiswa dalam program pengabdian masyarakat, asistensi mengajar vokasi, dan pengembangan sistem digital instansi pemerintahan.
+            </p>
+
+            <h2 class="section-title">Pengalaman Kerja & Magang</h2>
+            <div class="experience-container">
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Ketua Magang Praktik IT</span>
+                            <br><span class="exp-company">BPBD Kabupaten Sukoharjo</span>
+                        </div>
+                        <span class="exp-date">Jan 2025 – Feb 2025</span>
+                    </div>
+                    <ul class="exp-dots">
+                        <li>Memimpin dan mengkoordinasi tim pengembang beranggotakan 4 mahasiswa dalam merancang arsitektur aplikasi perangkat lunak.</li>
+                        <li>Berhasil membangun dan mengimplementasikan <strong>Website Sistem Arsip Surat</strong> guna mengefisiensikan manajemen dokumen internal instansi.</li>
+                        <li>Mengembangkan dan merilis <strong>Website Sistem Laporan Bencana</strong> untuk mempercepat penyebaran informasi tanggap darurat secara real-time.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Magang Teknisi Jaringan</span>
+                            <br><span class="exp-company">CV Bondan Group (Jasa Pemasangan Wi-Fi)</span>
+                        </div>
+                        <span class="exp-date">Jul 2021 – Okt 2021</span>
+                    </div>
+                    <ul class="exp-dots">
+                        <li>Melakukan instalasi, konfigurasi, penarikan kabel fiber optik, dan pemeliharaan perangkat jaringan nirkabel pada klien korporat dan perumahan.</li>
+                        <li>Mendiagnosis kendala teknis jaringan lokal (LAN) serta menjaga performa transmisi data agar tetap optimal.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-title">Pengalaman Organisasi</h2>
+            <div class="experience-container">
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Ketua Kelompok Praktik Lapangan (PLP)</span>
+                            <br><span class="exp-company">SMKN 2 Karanganyar</span>
+                        </div>
+                        <span class="exp-date">Sep 2025 – Nov 2025</span>
+                    </div>
+                    <ul class="exp-dots">
+                        <li>Mengkoordinasi program kerja asistensi mengajar yang melibatkan 29 praktikan lintas program studi.</li>
+                        <li>Menyusun rancangan pelaksanaan pembelajaran (RPP) berbasis teknologi dan mengajar materi pemrograman web serta jaringan komputer siswa SMK vokasi.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Ketua Kelompok KKN 165</span>
+                            <br><span class="exp-company">Universitas Sebelas Maret – Desa Sedayu, Muntilan</span>
+                        </div>
+                        <span class="exp-date">Jul 2025 – Agst 2025</span>
+                    </div>
+                    <ul class="exp-dots">
+                        <li>Memimpin 9 mahasiswa multidisiplin untuk melaksanakan program kerja pengabdian masyarakat terintegrasi.</li>
+                        <li>Merancang program kerja literasi digital berbasis sekolah melalui kegiatan sosialisasi edukatif guna mendukung peningkatan kemampuan pemanfaatan teknologi bagi generasi muda</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
