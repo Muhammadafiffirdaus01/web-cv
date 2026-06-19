@@ -24,8 +24,19 @@
 
   <style>
     /* ==========================================================================
-       Glow Back to Top Button Custom CSS
+       Custom CSS for Documentation Images & Back to Top
        ========================================================================== */
+    
+    /* Style untuk memastikan ukuran gambar dokumentasi konsisten */
+    .img-documented {
+      height: 180px; /* Tinggi seragam untuk semua gambar dokumentasi */
+      width: 100%;
+      object-fit: cover; /* Memotong gambar agar pas tanpa distorsi */
+      border-radius: 8px; /* Sudut melengkung */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan halus */
+    }
+
+    /* Style untuk Tombol Glow Back to Top */
     .back-to-top {
       position: fixed;
       visibility: hidden;
@@ -65,13 +76,6 @@
     .back-to-top.active {
       visibility: visible;
       opacity: 1;
-    }
-    
-    /* Utility style untuk kerapian gambar dokumentasi */
-    .timeline-img {
-      max-height: 250px;
-      width: auto;
-      object-fit: cover;
     }
   </style>
 </head>
@@ -268,8 +272,13 @@
             <h3 class="profile-title">Pengalaman Organisasi & Kerja</h3>
 
             <div class="timeline-item">
-              <div class="mb-3 text-start">
-                <img src="img/sambutan.jpeg" alt="RISMA Al-Mursalien" class="img-fluid rounded shadow-sm timeline-img">
+              <div class="row mb-3 gx-2 text-start">
+                <div class="col-6">
+                  <img src="img/sambutan.jpeg" alt="Sambutan RISMA" class="img-fluid img-documented">
+                </div>
+                <div class="col-6">
+                  <img src="img/fotbarrisma.jpeg" alt="Fotbar RISMA" class="img-fluid img-documented">
+                </div>
               </div>
               <span>Maret 2026 - Maret 2029</span>
               <h5>Ketua RISMA Jami' Al-Mursalien Dk. Kedungrejo</h5>
@@ -284,7 +293,7 @@
 
             <div class="timeline-item">
               <div class="mb-3 text-start">
-                <img src="img/closeplp.jpg" alt="PLP SMKN 2 Karanganyar" class="img-fluid rounded shadow-sm timeline-img">
+                <img src="img/closeplp.jpg" alt="PLP SMKN 2 Karanganyar" class="img-fluid rounded shadow-sm img-documented" style="width: auto;">
               </div>
               <span>September - November 2025</span>
               <h5>Ketua Kelompok Praktik Lapangan Persekolahan (PLP) – SMKN 2 Karanganyar</h5>
@@ -292,8 +301,13 @@
             </div>
 
             <div class="timeline-item">
-              <div class="mb-3 text-start">
-                <img src="img/kkn.JPG" alt="KKN Desa Sedayu" class="img-fluid rounded shadow-sm timeline-img">
+              <div class="row mb-3 gx-2 text-start">
+                <div class="col-6">
+                  <img src="img/kkn.JPG" alt="KKN Desa Sedayu" class="img-fluid img-documented">
+                </div>
+                <div class="col-6">
+                  <img src="img/lombakkn.jpeg" alt="Lomba KKN" class="img-fluid img-documented">
+                </div>
               </div>
               <span>Juli - Agustus 2025</span>
               <h5><a href="https://www.instagram.com/singgahsedayu.kknliterasi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color: inherit; text-decoration: underline;">Ketua Kelompok KKN 165 Desa Sedayu, Kec. Muntilan</a></h5>
@@ -302,7 +316,7 @@
 
             <div class="timeline-item">
               <div class="mb-3 text-start">
-                <img src="img/fulltimmagangbpbdskh.jpeg" alt="Magang BPBD Sukoharjo" class="img-fluid rounded shadow-sm timeline-img">
+                <img src="img/fulltimmagangbpbdskh.jpeg" alt="Magang BPBD Sukoharjo" class="img-fluid rounded shadow-sm img-documented" style="width: auto;">
               </div>
               <span>Januari - Februari 2025</span>
               <h5>Ketua Magang Praktik – BPBD Sukoharjo</h5>
