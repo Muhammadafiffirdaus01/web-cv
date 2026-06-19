@@ -27,16 +27,14 @@
        Custom CSS for Documentation Images & Back to Top
        ========================================================================== */
     
-    /* Style untuk memastikan ukuran gambar dokumentasi konsisten */
     .img-documented {
-      height: 180px; /* Tinggi seragam untuk semua gambar dokumentasi */
+      height: 180px;
       width: 100%;
-      object-fit: cover; /* Memotong gambar agar pas tanpa distorsi */
-      border-radius: 8px; /* Sudut melengkung */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan halus */
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    /* Style untuk Tombol Glow Back to Top */
     .back-to-top {
       position: fixed;
       visibility: hidden;
@@ -76,6 +74,23 @@
     .back-to-top.active {
       visibility: visible;
       opacity: 1;
+    }
+
+    .pdf-container {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      margin-top: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: none;
+    }
+    .pdf-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
@@ -247,7 +262,7 @@
             </div>
           </div>
 
-          <div class="profile-card">
+          <div class="profile-card text-start">
             <div class="card-icon">
               <i class="fa fa-certificate"></i>
             </div>
@@ -257,9 +272,13 @@
               <h5>Junior Web Programmer</h5>
               <p class="mb-3">Badan Nasional Sertifikasi Profesi (BNSP)</p>
               
-              <a href="img/Sertifikat_ujikom.pdf" target="_blank" class="button button-a button-sm" style="padding: 7px 15px; font-size: 13px; text-decoration: none; border-radius: 4px; display: inline-block;">
-                <i class="fa fa-external-link"></i> Lihat Sertifikat
-              </a>
+              <button type="button" class="button button-a button-sm" id="toggle-cert-btn" style="padding: 7px 15px; font-size: 13px; border-radius: 4px; border: none;">
+                <i class="fa fa-eye"></i> Tampilkan Sertifikat
+              </button>
+
+              <div class="pdf-container" id="cert-pdf-box">
+                <iframe src="img/Sertifikat_ujikom.pdf#toolbar=0&navpanes=0"></iframe>
+              </div>
             </div>
           </div>
           </div>
@@ -320,7 +339,7 @@
               </div>
               <span>Januari - Februari 2025</span>
               <h5>Ketua Magang Praktik – BPBD Sukoharjo</h5>
-              <p>Mengkoordinasi kelompok magang yang terdiri dari 4 mahasiswa dalam proyek pengembangan IT. Berhasil membangun Website Sistem Arsip Surat dan Sistem Laporan Bencana.</p>
+              <p>Mengkoordinasi kelompok magang yang terdiri dari 4 mahasiswa dalam proyek pengembangan IT. Berhasil membangun <a href="https://projectdua-afif.infinityfreeapp.com/" target="_blank" style="color: #0078ff; text-decoration: underline; font-weight: 600;">Website Sistem Arsip Surat</a> dan <a href="https://suratbpbd-afif.infinityfreeapp.com/" target="_blank" style="color: #0078ff; text-decoration: underline; font-weight: 600;">Sistem Laporan Bencana</a>.</p>
             </div>
 
             <div class="timeline-item">
@@ -511,13 +530,11 @@
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
   <script>
-    // 1. Inisialisasi Efek Scroll Reveal (AOS)
     AOS.init({
       once: false,
       mirror: true
     });
 
-    // 2. Efek Mengetik untuk Nama Utama
     new Typed('#typed-name', {
       strings: ['Muhammad Afif Firdaus'],
       typeSpeed: 60,
@@ -527,7 +544,6 @@
       cursorChar: '|'
     });
 
-    // 3. Efek Mengetik untuk Subtitle (Berputar/Looping bergantian)
     setTimeout(() => {
       new Typed('#typed-subtitle', {
         strings: [
@@ -584,6 +600,19 @@
         top: 0,
         behavior: "smooth"
       });
+    });
+
+    const toggleCertBtn = document.getElementById("toggle-cert-btn");
+    const certPdfBox = document.getElementById("cert-pdf-box");
+
+    toggleCertBtn.addEventListener("click", () => {
+      if (certPdfBox.style.display === "block") {
+        certPdfBox.style.display = "none";
+        toggleCertBtn.innerHTML = '<i class="fa fa-eye"></i> Tampilkan Sertifikat';
+      } else {
+        certPdfBox.style.display = "block";
+        toggleCertBtn.innerHTML = '<i class="fa fa-eye-slash"></i> Sembunyikan Sertifikat';
+      }
     });
   </script>
 
