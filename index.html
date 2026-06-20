@@ -92,6 +92,73 @@
       height: 100%;
       border: none;
     }
+    
+    /* Custom Styling untuk Info Tim Pengembang */
+    .w-crew {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .w-crew a {
+      color: #0078ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .w-crew a:hover {
+      text-decoration: underline;
+    }
+    .w-crew .badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       Custom CSS untuk Tombol Musik Melayang
+       ========================================================================== */
+    .music-btn {
+      position: fixed;
+      left: 25px;
+      bottom: 25px;
+      z-index: 9999;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+      cursor: pointer;
+    }
+
+    .music-btn i {
+      font-size: 18px;
+      transition: all 0.3s ease;
+      color: #fff;
+    }
+
+    .music-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+    }
+
+    /* Style ketika musik aktif berkibar/berputar */
+    .music-btn.playing {
+      background: linear-gradient(45deg, #11998e, #38ef7d);
+      box-shadow: 0 4px 15px rgba(56, 239, 125, 0.4);
+      animation: pulseMusic 2s infinite;
+    }
+
+    @keyframes pulseMusic {
+      0% { box-shadow: 0 0 0 0 rgba(56, 239, 125, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(56, 239, 125, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(56, 239, 125, 0); }
+    }
   </style>
 </head>
 
@@ -188,7 +255,7 @@
               <h3 class="title-left">Tentang Saya</h3>
             </div>
             <p class="lead">
-              Saya adalah mahasiswa semester 8 Pendidikan Teknik Informatika dan Komputer Universitas Sebelas Maret dengan minat di bidang jaringan komputer, web development, dan teknologi pendidikan.
+              Saya adalah mahasiswa Pendidikan Teknik Informatika dan Komputer Universitas Sebelas Maret dengan minat di bidang jaringan komputer, web development, dan teknologi pendidikan.
             </p>
             <p class="lead">
               Saya memiliki kemampuan problem solving, critical thinking, manajemen waktu, dan kerja tim.
@@ -379,7 +446,7 @@
       <div class="title-box text-center">
         <h3 class="title-a">Projects</h3>
         <p class="subtitle-a">
-          Beberapa project yang pernah saya kerjakan.
+          Beberapa ekosistem project sistem informasi BPBD Sukoharjo dan mitra kerja.
         </p>
         <div class="line-mf"></div>
       </div>
@@ -389,14 +456,19 @@
         <div class="col-md-4 mb-4">
           <div class="work-box">
             <div class="work-img">
-              <img src="img/siarta.png" class="img-fluid" alt="">
+              <img src="img/siarta.png" class="img-fluid" alt="Sistem Arsip Surat">
             </div>
             <div class="work-content">
               <h2 class="w-title">
                 <a href="https://projectdua-afif.infinityfreeapp.com/" target="_blank" style="color: inherit; text-decoration: none;">
                   Website Sistem Arsip Surat BPBD <i class="fa fa-external-link" style="font-size: 14px; margin-left: 5px;"></i>
                 </a>
-                </h2>
+              </h2>
+              <div class="w-crew">
+                <strong>Developer:</strong> <a href="https://www.instagram.com/ini.hanipi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Tubagus Hanif D. <i class="fa fa-instagram"></i></a><br>
+                <span class="badge badge-primary">Team Leader: Afif</span> 
+                <span class="badge badge-secondary">Member</span>
+              </div>
             </div>
           </div>
         </div>
@@ -404,7 +476,7 @@
         <div class="col-md-4 mb-4">
           <div class="work-box">
             <div class="work-img">
-              <img src="img/silap.png" class="img-fluid" alt="">
+              <img src="img/silap.png" class="img-fluid" alt="Sistem Laporan Bencana">
             </div>
             <div class="work-content">
               <h2 class="w-title">
@@ -412,6 +484,11 @@
                   Website Sistem Laporan Bencana <i class="fa fa-external-link" style="font-size: 14px; margin-left: 5px;"></i>
                 </a>
               </h2>
+              <div class="w-crew">
+                <strong>Developer:</strong> <a href="https://www.instagram.com/ini.hanipi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Tubagus Hanif D. <i class="fa fa-instagram"></i></a><br>
+                <span class="badge badge-primary">Team Leader: Afif</span> 
+                <span class="badge badge-secondary">Member</span>
+              </div>
             </div>
           </div>
         </div>
@@ -419,14 +496,73 @@
         <div class="col-md-4 mb-4">
           <div class="work-box">
             <div class="work-img">
-              <img src="img/lpkgafu.png" class="img-fluid" alt="">
+              <img src="img/lpkgafu.png" class="img-fluid" alt="LPK Gafu">
             </div>
             <div class="work-content">
               <h2 class="w-title">
                 <a href="https://lpkgafudream.infinityfreeapp.com/" target="_blank" style="color: inherit; text-decoration:none;">
-                Website LPK Gafu Dream Partners <i class="fa fa-external-link" style="font-size: 14px; margin-left: 5px;"></i>
+                  Website LPK Gafu Dream Partners <i class="fa fa-external-link" style="font-size: 14px; margin-left: 5px;"></i>
                 </a>
               </h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="work-box">
+            <div class="work-img">
+              <img src="img/viewsurat.png" class="img-fluid" alt="Sistem Laporan Surat">
+            </div>
+            <div class="work-content">
+              <h2 class="w-title">
+                <a href="http://silapsuratbpbd.unaux.com" target="_blank" style="color: inherit; text-decoration: none;">
+                  Sistem Laporan Surat BPBD <i class="fa fa-external-link" style="font-size: 14px; margin-left: 5px;"></i>
+                </a>
+              </h2>
+              <div class="w-crew">
+                <strong>Developer:</strong> Muhammad Afif Firdaus<br>
+                <span class="badge badge-primary">Team Leader</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="work-box">
+            <div class="work-img">
+              <img src="img/sislog.png" class="img-fluid" alt="Sistem Logistik BPBD">
+            </div>
+            <div class="work-content">
+              <h2 class="w-title">
+                <a href="https://silogistik.infinityfreeapp.com/" target="_blank" style="color: inherit; text-decoration: none;">
+                  Sistem Logistik BPBD <i class="fa fa-external-link" style="font-size: 14px; margin-left: 5px;"></i>
+                </a>
+              </h2>
+              <div class="w-crew">
+                <strong>Developer:</strong> <a href="https://www.instagram.com/wils_azz1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">M. Wildan Azizi <i class="fa fa-instagram"></i></a><br>
+                <span class="badge badge-secondary">Team Member</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="work-box">
+            <div class="work-img">
+              <img src="img/sispinjamalat.png" class="img-fluid" alt="Sistem Peminjaman Alat BPBD">
+            </div>
+            <div class="work-content">
+              <h2 class="w-title">
+                <a href="https://sipinjambpbd.infinityfreeapp.com/" target="_blank" style="color: inherit; text-decoration: none;">
+                  Sistem Peminjaman Alat BPBD <i class="fa fa-external-link" style="font-size: 14px; margin-left: 5px;"></i>
+                </a>
+              </h2>
+              <div class="w-crew">
+                <strong>Developer:</strong> <br>
+                1. <a href="https://www.instagram.com/ln.cahyo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Lasminanto Nur C. <i class="fa fa-instagram"></i></a><br>
+                2. <a href="https://www.instagram.com/saksenadiaz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Diaz Rangga S. <i class="fa fa-instagram"></i></a><br>
+                <span class="badge badge-secondary">Team Member</span>
+              </div>
             </div>
           </div>
         </div>
@@ -519,6 +655,15 @@
     </div>
   </footer>
 
+  <audio id="bg-music" loop>
+    <source src="audio/instrumental.mp3" type="audio/mpeg">
+    Browser lu gak mendukung tag audio ini.
+  </audio>
+
+  <button type="button" id="music-toggle" class="music-btn">
+    <i class="fa fa-music"></i>
+  </button>
+
   <button type="button" class="back-to-top" id="btn-back-to-top">
     <i class="fa fa-chevron-up"></i>
   </button>
@@ -588,8 +733,10 @@
     const backToTopBtn = document.getElementById("btn-back-to-top");
 
     window.addEventListener("scroll", () => {
+      // Tombol back to top bergeser sedikit ke atas jika aktif agar tidak menumpuk dengan tombol musik
       if (window.pageYOffset > 300) {
         backToTopBtn.classList.add("active");
+        backToTopBtn.style.bottom = "85px"; 
       } else {
         backToTopBtn.classList.remove("active");
       }
@@ -612,6 +759,28 @@
       } else {
         certPdfBox.style.display = "block";
         toggleCertBtn.innerHTML = '<i class="fa fa-eye-slash"></i> Sembunyikan Sertifikat';
+      }
+    });
+
+    // Logika Pengontrol Audio Musik
+    const musicBtn = document.getElementById("music-toggle");
+    const bgMusic = document.getElementById("bg-music");
+    const musicIcon = musicBtn.querySelector("i");
+
+    // SET VOLUME MENJADI 20% BIAR LEMBUT DI KUPING
+    bgMusic.volume = 0.2; 
+
+    musicBtn.addEventListener("click", () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.classList.add("playing");
+        musicIcon.classList.remove("fa-music");
+        musicIcon.classList.add("fa-pause");
+      } else {
+        bgMusic.pause();
+        musicBtn.classList.remove("playing");
+        musicIcon.classList.remove("fa-pause");
+        musicIcon.classList.add("fa-music");
       }
     });
   </script>
